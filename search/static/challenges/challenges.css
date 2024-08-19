@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rufina:wght@400;700&display=swap');
+
+html{
+    font-family: "Rufina", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgb(0, 0, 0);
+    border-radius: 50%;
+    
+}
+
+img{
+    border-radius: 500px;
+    
+}

@@ -1,0 +1,16 @@
+body{
+    background: rgb(0,0,6);
+    background: linear-gradient(90deg, rgba(0,0,6,1) 0%, rgba(39,39,43,0.999333847400754) 35%, rgba(74,87,89,1) 100%);
+}
+
+.main{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+h1{
+    color: white;
+}
