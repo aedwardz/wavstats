@@ -15,12 +15,13 @@ password = os.getenv("PASSWORD")
 # Create your views here.
 
 
-tken = spotify.getToken()
+
 
 
 
 
 def home(request):
+    tken = spotify.getToken()
     if request.method == 'POST':
         form = text_form(request.POST)
         if form.is_valid():
@@ -32,19 +33,8 @@ def home(request):
         args = {
             'form': form,      
         }
-        return render(request, "challenges/home.html", args)
+        return render(request, "search/home.html", args)
     
-
-def index(request):
-    return HttpResponseNotFound("This does not work!!")
-
-def func(request):
-    
-    return HttpResponse(f"{x}\n" for x in sys.__dict__)
-
-def games(request, game):
-    return HttpResponse(f"<h1>{game} is my favorite game</h1>")
-
 def showEnvs(request, pssword):
     if pssword == password:
         return HttpResponse(f"ClientID: {spotify.getClientID()}</br>ClientSecret: {spotify.getClientSecret()}</br>{spotify.getToken()}")
@@ -52,6 +42,7 @@ def showEnvs(request, pssword):
         return HttpResponse(f"<h1>Wrong password Gang!</h1>")
 
 def spotifyStats(request, artist):
+    tken = spotify.getToken()
     result = spotify.searchArtist(tken, artist)
     resCount = 0
 
@@ -69,4 +60,7 @@ def spotifyStats(request, artist):
         "resultCount": resCount,
         "artistName": artist
     }
-    return render(request, "challenges/results.html", args)
+    return render(request, "search/results.html", args)
+
+def artistPage(request, artistId):
+    return render(request, 'search/artist.html')

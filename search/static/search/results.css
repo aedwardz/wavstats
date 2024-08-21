@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+  }
+
+body > *{
+  margin-left:100px;
+  margin-right: 100px;
+}
+
+.results{
+  display:grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.results > a{
+  display:flex;
+  /* outline: auto; */
+}
+
+.card{
+  transition: all ease 0.3s;
+  
+}
+
+.card:hover{
+  transform: scale(1.1);
+}
+
+.artist-button{
+  text-decoration: none;
+}
+
+p{
+  font-weight: 100;
+  font-size: 14pt;
+}
+
+.result-count{
+  color: white;
+}

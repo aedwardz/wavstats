@@ -1,0 +1,42 @@
+
+{%extends "base.html"%}
+{% comment %} args = {
+    "search_data": result,
+    "resultCount": resCount,
+    "artistName": artist
+} {% endcomment %}
+
+{%load humanize%}
+{%load static%}
+
+{%block page_title%}{{artistName}}{%endblock%}
+
+{%block page_style%}
+<link rel="stylesheet" href="{%static "search/results.css"%}">
+{%endblock%} 
+
+{%block page_content%}
+<h1 class="result-count"> {{resultCount}} results for "{{artistName}}"<h1>
+<div class="results">
+  {%for artist in search_data%}
+    <a href="{% url 'artist_page' artist.id%}" class="artist-button">
+      <div class="card mb-3" style="max-width: 1000px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{artist.images.0.url}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{artist.name}}</h4>
+              <p class="card-text">{{artist.genres.0}}</p>
+              <p class="card-text">{{artist.followers.total | intcomma}} followers</p>
+              <p class="card-text">{{artist.images.0.url}}<small class="text-body-secondary"></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  {%endfor%}
+</div>
+{%endblock%}
+    
