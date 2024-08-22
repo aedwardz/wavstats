@@ -1,0 +1,63 @@
+.content{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap:25px;
+    /*border: 1px solid white;*/
+
+
+}
+
+
+.content > div{
+    border: 1px solid red;
+}
+
+h2{
+    color:white;
+    font-weight: 100;
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+}
+h1{
+    color:white;
+    font-weight: 400;
+}
+
+.intro{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+#artist-image{
+    height:500px;
+    width:550px;
+    border: 1px solid lightblue;
+    transition: all ease 0.5s;
+}
+
+@media(max-width:650px){
+    #artist-image{
+        height: 300px;
+        width: 300px;
+    }
+}
+#artist-image:hover{
+    transform: scale(1.15);
+    background-color: pink;
+}
+
+h3{
+    color:white;
+    font-weight: 100;
+}
+
+.top{
+    display: flex;
+    /*border: 1px solid white;*/
+    /*height: 400px;*/
+}
