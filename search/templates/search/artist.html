@@ -50,7 +50,7 @@ args = {
          {% endfor %}
         </div>
 
-
+        {% if albums %}
         <h2>Popular Albums</h2>
         <div class="top albums">
             {% for album in albums %}
@@ -61,6 +61,6 @@ args = {
             {% endfor %}
 
         </div>
-
+        {% endif %}
     </div>
 {%endblock%}
