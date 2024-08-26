@@ -19,6 +19,10 @@ def getClientSecret():
     return client_secret
 
 def getToken():
+    """
+    Returns a token retrieved from spotify api
+    """
+    
     auth_string = client_id + ":" + client_secret
     auth_bytes = auth_string.encode("utf-8")
     auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
@@ -58,14 +62,28 @@ def searchArtist(token, artist_name):
     result = get(url, headers=headers)
     json_result = json.loads(result.content)
     return json_result['artists']['items']
-    return json_result
+
+
+
+def getArtistInfo(token, artistId) -> json:
+   endpoint = "https://api.spotify.com/v1/artists/" + artistId
+   headers = getAuthHeader(token)
+
+   result = get(endpoint, headers=headers)
+   json_result = json.loads(result.content)
+   endpoint = f"https://api.spotify.com/v1/artists/{artistId}/top-tracks"
+   result = get(endpoint, headers = headers)
+   topTracks = json.loads(result.content)
+   json_result.update(topTracks)
+   return json_result
+
+
 
 if __name__ == "__main__":
     tkn = getToken()
     resCount = 0
-    result = searchArtist(tkn, 'Drake')['artists']
-    for thing in result['items']:
-        print(thing['name'])
-        resCount += 1
-    print(resCount)
+    result = getArtistInfo(tkn,"0TnOYISbd1XYRBk9myaseg")
+    for album in result['tracks']:
+        for key, val in album.items():
+            print(f"{key} : {val}")
 

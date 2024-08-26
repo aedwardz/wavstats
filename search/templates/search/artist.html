@@ -1,5 +1,15 @@
 {%extends "base.html"%}
+{% comment %}
+args = {
+        'artistName': artistName, -> string
+        'numFollowers': numFollowers, -> int
+        'genreList': genreList, -> [string]
+        'profilePic': profilePic, -> string url
+        'popularity': popularity -> int
+    } 
+{% endcomment %}
 {%load static%}
+{%load humanize%}
 
 {%block page_title%}Artist mane{%endblock%}
 {% block page_style %}<link rel="stylesheet" href="{% static "search/artist.css" %}">{% endblock %}
@@ -8,29 +18,48 @@
 {%block page_content%}
     <div class="content">
         <div class="title">
-            <h1 id="artist-name">
-                Artist Name
-            </h1>
-            <h2>genre | genre 2 | genre 3</h2>
+            <h1 id="artist-name">{{ artistName }}</h1>
+
+            {% comment %} Render the genres if they exist {% endcomment %}
+            {%if genreList%}
+                {%for genre in genreList%}
+                    <h4>{{ genre }}</h4>
+                {%endfor%}
+            {%endif%}
 
         </div>
         <div class="intro">
+
             <div id="artist-image">
-
+                <img class="profile" src={{ profilePic }}>
+                <h3>Followers: {{numFollowers | intcomma}}</h3>
+                <h3>Popularity: {{popularity}} </h3>
             </div>
-            <h3>Followers</h3>
-            <h3>popularity</h3>
+
+
         </div>
 
-
+        <h2>Popular Tracks</h2>
         <div class="top tracks">
-            <h2>Top Tracks</h2>
+
+         {% for track in tracks %}
+             <div class="album">
+                <img src={{ track.2 }}>
+                <p>{{ track.0 }}</p>
+             </div>
+         {% endfor %}
         </div>
 
 
-
+        <h2>Popular Albums</h2>
         <div class="top albums">
-            <h2>Top Albums</h2>
+            {% for album in albums %}
+                <div class ="album">
+                    <img src={{ album.2 }}>
+                    <p>{{ album.0 }}</p>
+                </div>
+            {% endfor %}
+
         </div>
 
     </div>

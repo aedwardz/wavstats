@@ -20,7 +20,7 @@
 <div class="results">
   {%for artist in search_data%}
     <a href="{% url 'artist_page' artist.id%}" class="artist-button">
-      <div class="card mb-3" style="max-width: 1000px;">
+      <div class="card mb-3 bg-dark text-white" style="max-width: 1000px;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="{{artist.images.0.url}}" class="img-fluid rounded-start" alt="...">

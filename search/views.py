@@ -62,5 +62,66 @@ def spotifyStats(request, artist):
     }
     return render(request, "search/results.html", args)
 
+
+
+
 def artistPage(request, artistId):
-    return render(request, 'search/artist.html')
+
+    tken = spotify.getToken()
+    info = spotify.getArtistInfo(tken, artistId)
+
+    artistName = info['name']
+    numFollowers = info['followers']['total']
+    genreList = info['genres']
+    profilePic = info['images'][0]['url']
+    popularity = info['popularity']
+
+
+
+    limit = 0
+    tracks = []
+    albums = []
+    for val in info['tracks']:
+        if limit == 5:
+            break
+
+
+        name = val['name']
+        popularity = val['popularity']
+        image = val['album']['images'][0]['url']
+        tracks.append((name, popularity, image))
+        limit +=1
+
+    limit = 0
+    for val in info['tracks']:
+        if limit == 5:
+            break
+        if val['album']['album_type'] == "album":
+            albumArtist = val['album']['artists'][0]['name']
+            if albumArtist != artistName:
+                continue
+
+            print(albumArtist)
+            albumName = val['album']['name']
+            popularity = val['popularity']
+            image = val['album']['images'][0]['url']
+            album = (albumName, popularity, image)
+            if album not in albums:
+                albums.append(album)
+                limit += 1
+
+    print(albums)
+
+    
+
+
+    args = {
+        'artistName': artistName,
+        'numFollowers': numFollowers,
+        'genreList': genreList,
+        'profilePic': profilePic,
+        'popularity': popularity,
+        'tracks': tracks,
+        'albums': albums
+    }
+    return render(request, 'search/artist.html',args)
