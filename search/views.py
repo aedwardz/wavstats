@@ -105,7 +105,7 @@ def artistPage(request, artistId):
             albumName = val['album']['name']
             popularity = val['popularity']
             image = val['album']['images'][0]['url']
-            album = (albumName, popularity, image)
+            album = (albumName, image)
             if album not in albums:
                 albums.append(album)
                 limit += 1
