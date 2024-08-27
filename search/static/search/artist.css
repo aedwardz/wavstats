@@ -48,7 +48,7 @@ h1{
 
 #artist-image:hover{
     transform: scale(1.15);
-    background-color: pink;
+    background-color: #2c9549;
 }
 
 h4{

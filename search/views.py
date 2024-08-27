@@ -73,7 +73,9 @@ def artistPage(request, artistId):
     artistName = info['name']
     numFollowers = info['followers']['total']
     genreList = info['genres']
-    profilePic = info['images'][0]['url']
+    profilePic = None
+    if info['images']:
+        profilePic = info['images'][0]['url']
     popularity = info['popularity']
 
 

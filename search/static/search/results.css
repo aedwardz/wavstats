@@ -40,3 +40,31 @@ p{
 .result-count{
   color: white;
 }
+
+.result{
+  display:flex;
+  background-color: #222529;
+  transition: all ease 0.3s;
+  color: white;
+  border-radius: 10px 100px / 120px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.result:hover{
+  transform: scale(1.1);
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed
+}
+
+.photo{
+  max-width: 180px;
+  height:auto;
+}
+
+.cardText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

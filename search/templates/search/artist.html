@@ -31,7 +31,9 @@ args = {
         <div class="intro">
 
             <div id="artist-image">
-                <img class="profile" src={{ profilePic }}>
+                {% if profilePic %}
+                    <img class="profile" src={{ profilePic }}>
+                {% endif %}
                 <h3>Followers: {{numFollowers | intcomma}}</h3>
                 <h3>Popularity: {{popularity}} </h3>
             </div>
@@ -39,6 +41,7 @@ args = {
 
         </div>
 
+    {% if tracks %}
         <h2>Popular Tracks</h2>
         <div class="top tracks">
 
@@ -49,6 +52,7 @@ args = {
              </div>
          {% endfor %}
         </div>
+    {% endif %}
 
         {% if albums %}
         <h2>Popular Albums</h2>
