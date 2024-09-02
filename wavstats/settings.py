@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-k&w4x1j%1qllp^^h!l0f2_^t%sk#pgk1y&m9jwrcw=&x!q!4*1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'wavstats.onrender.com',
+    'localhost'
+]
 
 
 # Application definition
