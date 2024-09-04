@@ -1,2 +1,3 @@
 venv/
 search/.env
+.env
