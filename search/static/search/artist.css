@@ -3,7 +3,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap:25px;
-    /*border: 1px solid white;*/
+    /*border: 1px solid red;*/
     width: 100%;
 
 
@@ -21,8 +21,13 @@ h2{
 .title{
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+    row-gap:5px;
+    flex-wrap: wrap;
 
+}
+.genre{
+    font-style: italic;
 }
 h1{
     color:white;
@@ -70,7 +75,9 @@ h3{
 
 .profile{
     max-width: 550px;
+    /*max-width: 50%;*/
     height: auto;
+
    
 }
 
@@ -95,13 +102,24 @@ p{
 
 @media (max-width: 480px){
     .profile{
-        max-width: 300px;
-        height: auto
+        max-width: 100%;
+        height: auto;
+    }
+    .genre{
+        font-size: 5vw;
+    }
+    .title{
+        gap: 10px;
+        row-gap:0;
+    }
+    #artist-image{
+        max-width: 80%;
     }
 }
-/*@media (max-width:650px){*/
-/*    #artist-image{*/
-/*        height: 300px;*/
-/*        width: 300px;*/
-/*    }*/
-/*}*/
+
+@media (min-width: 481px) and (max-width:650px){
+    .profile{
+        max-width: 400px;
+        height:auto;
+    }
+}

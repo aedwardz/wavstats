@@ -23,7 +23,7 @@ args = {
             {% comment %} Render the genres if they exist {% endcomment %}
             {%if genreList%}
                 {%for genre in genreList%}
-                    <h4>{{ genre }}</h4>
+                    <h4 class="genre">{{ genre }}</h4>
                 {%endfor%}
             {%endif%}
 
