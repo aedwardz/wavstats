@@ -1,7 +1,11 @@
 branch-defaults:
   prod:
-    environment: null
+    environment: WavStats
     group_suffix: null
+environment-defaults:
+  WavStats:
+    branch: null
+    repository: null
 global:
   application_name: wavstats
   branch: null

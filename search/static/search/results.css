@@ -4,18 +4,20 @@
   }
 
 body > *{
-  margin-left:100px;
-  margin-right: 100px;
 }
 
 .results{
   display:grid;
   gap: 10px;
   grid-template-columns: 1fr 1fr;
+  padding-left: 5%;
+  padding-right:5%;
 }
 
 .results > a{
   display:flex;
+  justify-content:center;
+  align-items:center;
   /* outline: auto; */
 }
 
@@ -39,6 +41,7 @@ p{
 
 .result-count{
   color: white;
+  padding-left: 5%;
 }
 
 .result{
@@ -48,7 +51,7 @@ p{
   color: white;
   border-radius: 10px 100px / 120px;
   overflow: hidden;
-  width: 600px;
+  width: 100%;
 }
 
 .result:hover{
@@ -67,4 +70,27 @@ p{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+h3{
+  font-weight: 300;
+}
+
+@media (max-width:650px){
+  .results{
+    grid-template-columns: 1fr;
+    /*padding:0;*/
+  }
+
+  .result{
+    width: 100%;
+
+  }
+  .result-count{
+    /*padding: 0;*/
+  }
+  .photo{
+  max-width: 90px;
+  height:auto;
+}
 }
