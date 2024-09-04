@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k&w4x1j%1qllp^^h!l0f2_^t%sk#pgk1y&m9jwrcw=&x!q!4*1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'wavstats.onrender.com',
     'localhost',
-    '167.99.192.225'
+    '*'
 ]
 
 
